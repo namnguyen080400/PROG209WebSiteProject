@@ -4,6 +4,7 @@ let ContactObject = function (pName, pEmail, pPhoneNumber) {
     this.name = pName;
     this.email = pEmail;
     this.phoneNumber = pPhoneNumber;
+    this.ID = Math.random().toString(16).slice(5);
 }
 
 
@@ -25,7 +26,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
         document.getElementById("phone").value = "";
 
         createList();
+        document.location.href = "index.html#display";
     });
+
+    $(document).on("pagebeforeshow", "#display", function (event) {   // have to use jQuery 
+        createList();
+    })
 
 });
 
@@ -40,7 +46,7 @@ function createList() {
     contactArray.forEach(function (element) {   // use handy array forEach method
         var li = document.createElement('li');
           // added data-role="listview" to the ul in the html
-        li.innerHTML = "Contact " + count + "<br>" + "&nbsp &nbsp &nbsp  <b> Name: </b>" + element.name + " <b> Email: </b>" + element.email + "<b> Phone Number: </b>" + element.phoneNumber;
+        li.innerHTML = "<li>" + "ID: " + element.ID + "<b> Name: </b>" + element.name + " <b> Email: </b>" + element.email + "<b> Phone Number: </b>" + element.phoneNumber + "</li>";
         count++;
         myul.appendChild(li);
     });
