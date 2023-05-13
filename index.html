@@ -9,6 +9,7 @@
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <script src="index.js"></script>
+  <script src ="index.js"></script>
 </head>
 <body>
 <!--------------------------------------------------------------------------------->
@@ -21,6 +22,7 @@
                 <li><a href="#home" data-icon="home">Home</a></li>
                 <li><a href="#data" data-icon="plus">information</a></li>
                 <li><a href="#display" data-icon="grid">Display</a></li>
+                <li><a href="#emergency" data-icon="alert">Emergency Contacts</a></li>
             </ul>
         </div>
     </div>
@@ -42,6 +44,7 @@
                 <li><a href="#home" data-icon="home">Home</a></li>
                 <li><a href="#data" data-icon="plus">information</a></li>
                 <li><a href="#display" data-icon="grid">Display</a></li>
+                <li><a href="#emergency" data-icon="alert">Emergency Contacts</a></li>
             </ul>
         </div>
     </div>
@@ -77,15 +80,13 @@
                 <li><a href="#home" data-icon="home">Home</a></li>
                 <li><a href="#data" data-icon="plus">information</a></li>
                 <li><a href="#display" data-icon="grid">Display</a></li>
+               <li><a href="#emergency" data-icon="alert">Emergency Contacts</a></li>
             </ul>
         </div>
     </div>
     <h2>Here are Your contact  Notes</h2>
     <br><br>
     <div data-role="page" id="show">
-    
-   
-       
  
     </div>
 
@@ -98,6 +99,37 @@
     <div data-role="footer" data-theme='b'>
         <h3>copy right </h3>
     </div>
+  
+</div>
+  <!--------------------------------------------------------------------------------->
+<div data-role="page" id="emergency">
+  <div data-role="header" data-theme="b">
+    <h1>Emergency Contacts</h1>
+    <div data-role="navbar" data-iconpos="left">
+      <ul>
+        <li><a href="#home" data-icon="home">Home</a></li>
+        <li><a href="#data" data-icon="plus">Information</a></li>
+        <li><a href="#display" data-icon="grid">Display</a></li>
+        <li><a href="#emergency" data-icon="alert">Emergency Contacts</a></li>
+      </ul>
+    </div>
+  </div>
+  <div data-role="content">
+    <h2>Emergency Phone Contact List</h2>
+    <ul data-role="listview" data-inset="true">
+      <li><a href="#" id="police">Police</a></li>
+      <li><a href="#" id="fire">Fire Department</a></li>
+      <li><a href="#" id="ambulance">Ambulance</a></li>
+    </ul>
+    <div id="phone-numbers">
+    
+    </div>
+  </div>
+  <div data-role="footer" data-theme='b'>
+    <h3>copy right</h3>
+  </div>
 </div>
 </body>
+
+
 </html>
