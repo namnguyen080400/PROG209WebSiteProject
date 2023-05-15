@@ -34,18 +34,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     $(document).on("pagebeforeshow", "#display", function (event) {
         createList();
     });
-//=====part where i add  =====
-    document.getElementById("police").addEventListener("click", function () {
-        alert("Police number 911");
-    });
 
-    document.getElementById("fire").addEventListener("click", function () {
-        alert("FIRE DEPARTMENT NUMBER:425-452-6892");
-    });
-
-    document.getElementById("ambulance").addEventListener("click", function () {
-        alert("AMBULANCE NUMBER: 425-452-6892");
-    });
 });
 
 //======================================
@@ -63,3 +52,31 @@ function createList() {
         myul.appendChild(li);
     });
 };
+
+let contacts = [];
+
+function addContact() {
+  const nameInput = document.getElementById("Avatar1");
+  const photoUrlInput = document.getElementById("Photo_URL");
+
+  const contact = {
+    name: nameInput.value,
+    photoUrl: photoUrlInput.value
+  };
+
+  contacts.push(contact);
+
+  const contactList = document.getElementById("avatar-list");
+
+  const PHOTO = document.createElement("li");
+  const LINK = document.createElement("a");
+  LINK.innerText = contact.name;
+  LINK.href = contact.photoUrl;
+  LINK.target = "_blank";
+  PHOTO.appendChild(LINK);
+
+  contactList.appendChild(PHOTO);
+
+  nameInput.value = "";
+  photoUrlInput.value = "";
+}

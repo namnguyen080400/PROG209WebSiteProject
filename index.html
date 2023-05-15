@@ -22,7 +22,7 @@
                 <li><a href="#home" data-icon="home">Home</a></li>
                 <li><a href="#data" data-icon="plus">information</a></li>
                 <li><a href="#display" data-icon="grid">Display</a></li>
-                <li><a href="#emergency" data-icon="alert">Emergency Contacts</a></li>
+                <li><a href="#avatar" data-icon="star">Avatar Contacts</a></li>
             </ul>
         </div>
     </div>
@@ -44,7 +44,7 @@
                 <li><a href="#home" data-icon="home">Home</a></li>
                 <li><a href="#data" data-icon="plus">information</a></li>
                 <li><a href="#display" data-icon="grid">Display</a></li>
-                <li><a href="#emergency" data-icon="alert">Emergency Contacts</a></li>
+                <li><a href="#avatar" data-icon="star">Avatar Contacts</a></li>
             </ul>
         </div>
     </div>
@@ -56,7 +56,7 @@
                 <input type="text" name="name" id="name" required>
             </div>
             <div data-role="fieldcontain">
-                <label for="email">Email:</label>
+                <label for="email">email:</label>
                 <input type="email" name="email" id="email" required>
             </div>
             <div data-role="fieldcontain">
@@ -65,7 +65,14 @@
             </div>
             <button id="submitContact">Submit</button>
         </form>
+        <img id="avatar" src="https://gravatar.com/avatar/dddb678a9d347247f2a5124724acee9e?s=200&d=robohash&r=x" alt="Avatar">
+  
+        <img id="avatar" src="https://robohash.org/dddb678a9d347247f2a5124724acee9e?set=set4&bgset=&size=200x200" alt="Avatar">
+  
+        <img id="avatar" src="https://robohash.org/dddb678a9d347247f2a5124724acee9e?set=set2&bgset=&size=200x200" alt="Avatar">
+
     </div>
+    
     <div data-role="footer" data-theme="b">
         <h4>Copy right </h4>
     </div>
@@ -80,7 +87,7 @@
                 <li><a href="#home" data-icon="home">Home</a></li>
                 <li><a href="#data" data-icon="plus">information</a></li>
                 <li><a href="#display" data-icon="grid">Display</a></li>
-               <li><a href="#emergency" data-icon="alert">Emergency Contacts</a></li>
+               <li><a href="#avatar" data-icon="star">Avatar Contacts</a></li>
             </ul>
         </div>
     </div>
@@ -94,40 +101,69 @@
     <div data-role="content" data-theme='c'>
         <ul id="myul" data-role="listview"></ul>  
     </div>
-
+    <h3>avatar URL link example clickable link : </h3>
+    <a id="avatarLink" href="https://gravatar.com/avatar/dddb678a9d347247f2a5124724acee9e?s=200&d=robohash&r=x">
+        <img id="avatar" src="https://gravatar.com/avatar/dddb678a9d347247f2a5124724acee9e?s=200&d=robohash&r=x" alt="Avatar">
+    </a>
+  <a id="avatarLink" href="https://robohash.org/dddb678a9d347247f2a5124724acee9e?set=set4&bgset=&size=200x200">
+        <img id="avatar" src="https://robohash.org/dddb678a9d347247f2a5124724acee9e?set=set4&bgset=&size=200x200" alt="Avatar">
+    </a>
+  <a id="avatarLink" href="https://robohash.org/dddb678a9d347247f2a5124724acee9e?set=set2&bgset=&size=200x200">
+        <img id="avatar" src="https://robohash.org/dddb678a9d347247f2a5124724acee9e?set=set2&bgset=&size=200x200" alt="Avatar">
+    </a>
     <!-- notes footer --> 
     <div data-role="footer" data-theme='b'>
         <h3>copy right </h3>
     </div>
   
 </div>
-  <!--------------------------------------------------------------------------------->
-<div data-role="page" id="emergency">
+  <!--change new ------------------------------------------------------------------------------->
+<div data-role="page" id="avatar">
   <div data-role="header" data-theme="b">
-    <h1>Emergency Contacts</h1>
+    <h1>person avatar list </h1>
     <div data-role="navbar" data-iconpos="left">
-      <ul>
-        <li><a href="#home" data-icon="home">Home</a></li>
-        <li><a href="#data" data-icon="plus">Information</a></li>
-        <li><a href="#display" data-icon="grid">Display</a></li>
-        <li><a href="#emergency" data-icon="alert">Emergency Contacts</a></li>
-      </ul>
+        <ul>
+            <li><a href="#home" data-icon="home">Home</a></li>
+            <li><a href="#data" data-icon="plus">information</a></li>
+            <li><a href="#display" data-icon="grid">Display</a></li>
+           <li><a href="#avatar" data-icon="star">Avatar Contacts</a></li>
+        </ul>
     </div>
-  </div>
-  <div data-role="content">
-    <h2>Emergency Phone Contact List</h2>
-    <ul data-role="listview" data-inset="true">
-      <li><a href="#" id="police">Police</a></li>
-      <li><a href="#" id="fire">Fire Department</a></li>
-      <li><a href="#" id="ambulance">Ambulance</a></li>
-    </ul>
-    <div id="phone-numbers">
-    
+        <form id="data-form">
+            <div data-role="fieldcontain">
+                <label for="Avatar1">Name:</label>
+                <input type="text" name="name" id="Avatar1" required>
+            </div>
+            <div data-role="fieldcontain">
+                <label for="Photo_URL">Photo URL:</label>
+                <input type="text" name="Photo_URL" id="Photo_URL" placeholder="put photo url in here">
+            
+          
+            <button type="button" onclick="addContact()">Add Contact</button>
+  </form>
     </div>
+    <h2>Here are Your photo contact </h2>
+    <ul id="avatar-list"></ul>
+    <br><br>
+    <div data-role="page" id="show">
   </div>
+  <div data-role="content" data-theme='c'>
+    <ul id="myul" data-role="listview"></ul>  
+</div>
   <div data-role="footer" data-theme='b'>
     <h3>copy right</h3>
   </div>
+  <div data-role="page" id="user">
+    <div data-role="header" data-theme="b">
+        <h1>User Profile</h1>
+        <div data-role="navbar" data-iconpos="left">
+            <ul>
+                <li><a href="#home" data-icon="home">Home</a></li>
+                <li><a href="#data" data-icon="plus">information</a></li>
+                <li><a href="#display" data-icon="grid">Display</a></li>
+                <li><a href="#avatar" data-icon="star">Avatar Contacts</a></li>
+            </ul>
+        </div>
 </div>
 </body>
 
