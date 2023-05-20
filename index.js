@@ -1,9 +1,11 @@
 let contactArray = [];
 
-let  ContactObject = function (pName, pEmail, pPhoneNumber) {
+let  ContactObject = function (pName, pEmail, pPhoneNumber, pPhotoName, pPhoto_URL) {
     this.name = pName;
     this.email = pEmail;
     this.phoneNumber = pPhoneNumber;
+    this.PhotoName = pPhotoName;
+    this.Photo_URL = pPhoto_URL;
     this.ID = Math.random().toString(16).slice(5);
 }
 
@@ -19,13 +21,17 @@ document.addEventListener("DOMContentLoaded", function (event) {
         var contact = new ContactObject(
             document.getElementById("name").value,
             document.getElementById("email").value,
-            document.getElementById("phone").value
+            document.getElementById("phone").value,
+            document.getElementById("PhotoName").value,
+            document.getElementById("Photo_URL").value
         );
         contactArray.push(contact);
 
         document.getElementById("name").value = "";
         document.getElementById("email").value = "";
         document.getElementById("phone").value = "";
+        document.getElementById("PhotoName").value = "";
+        document.getElementById("Photo_URL").value = "";
 
         createList();
         document.location.href = "index.html#display";
@@ -47,7 +53,7 @@ function createList() {
     contactArray.forEach(function (element) {   // use handy array forEach method
         var li = document.createElement('li');
         // added data-role="listview" to the ul in the html
-        li.innerHTML = "ID: " + element.ID + "<b> Name: </b>" + element.name + " <b> Email: </b>" + element.email + "<b> Phone Number: </b>" + element.phoneNumber;
+        li.innerHTML = "ID: " + element.ID + "<b> Name: </b>" + element.name + " <b> Email: </b>" + element.email + "<b> Phone Number: </b>" + element.phoneNumber + " Photo <a href=" + element.Photo_URL + ">" + element.PhotoName + "</a>";
       count++;
         myul.appendChild(li);
     });
