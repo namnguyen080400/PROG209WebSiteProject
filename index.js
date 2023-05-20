@@ -1,10 +1,9 @@
 let contactArray = [];
 
-let  ContactObject = function (pName, pEmail, pPhoneNumber, pPhotoName, pPhoto_URL) {
+let  ContactObject = function (pName, pEmail, pPhoneNumber, pPhoto_URL) {
     this.name = pName;
     this.email = pEmail;
     this.phoneNumber = pPhoneNumber;
-    this.PhotoName = pPhotoName;
     this.Photo_URL = pPhoto_URL;
     this.ID = Math.random().toString(16).slice(5);
 }
@@ -22,7 +21,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
             document.getElementById("name").value,
             document.getElementById("email").value,
             document.getElementById("phone").value,
-            document.getElementById("PhotoName").value,
             document.getElementById("Photo_URL").value
         );
         contactArray.push(contact);
@@ -30,7 +28,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
         document.getElementById("name").value = "";
         document.getElementById("email").value = "";
         document.getElementById("phone").value = "";
-        document.getElementById("PhotoName").value = "";
         document.getElementById("Photo_URL").value = "";
 
         createList();
@@ -39,6 +36,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     $(document).on("pagebeforeshow", "#display", function (event) {
         createList();
+    });
+
+    document.getElementById("showByNameButton").addEventListener("click", function() {
+      displayContactsByName();
     });
 
 });
@@ -53,36 +54,52 @@ function createList() {
     contactArray.forEach(function (element) {   // use handy array forEach method
         var li = document.createElement('li');
         // added data-role="listview" to the ul in the html
-        li.innerHTML = "ID: " + element.ID + "<b> Name: </b>" + element.name + " <b> Email: </b>" + element.email + "<b> Phone Number: </b>" + element.phoneNumber + " Photo <a href=" + element.Photo_URL + ">" + element.PhotoName + "</a>";
+        li.innerHTML = "ID: " + element.ID + "<b> Name: </b>" + element.name + " <b> Email: </b>" + element.email + "<b> Phone Number: </b>" + element.phoneNumber;
       count++;
         myul.appendChild(li);
     });
 };
 
-let contacts = [];
+function displayContactInfo(contact) {
+  var INFOR = document.getElementById("contactInfo");
+  INFOR.innerHTML = "";
 
-function addContact() {
-  const nameInput = document.getElementById("Avatar1");
-  const photoUrlInput = document.getElementById("Photo_URL");
+  var NAME1 = document.createElement('h3');
+  NAME1.innerText = "Name: " + contact.name;
 
-  const contact = {
-    name: nameInput.value,
-    photoUrl: photoUrlInput.value
-  };
+  var EMAILL1 = document.createElement('p');
+  EMAILL1.innerText = "Email: " + contact.email;
 
-  contacts.push(contact);
+  var PHONE1 = document.createElement('p');
+  PHONE1.innerText = "Phone Number: " + contact.phoneNumber;
 
-  const contactList = document.getElementById("avatar-list");
+  var PHOTOIMG = document.createElement("button");
+  PHOTOIMG.appendChild(document.createTextNode(contact.name + "'s Avatar"));
+  PHOTOIMG.addEventListener("click", function() {
+    window.open(contact.Photo_URL);
+  });
+  INFOR.appendChild(NAME1);
+  INFOR.appendChild(EMAILL1);
+  INFOR.appendChild(PHONE1);
+  INFOR.appendChild(PHOTOIMG);
 
-  const PHOTO = document.createElement("li");
-  const LINK = document.createElement("a");
-  LINK.innerText = contact.name;
-  LINK.href = contact.photoUrl;
-  LINK.target = "_blank";
-  PHOTO.appendChild(LINK);
 
-  contactList.appendChild(PHOTO);
-
-  nameInput.value = "";
-  photoUrlInput.value = "";
+}
+function displayContactsByName() {
+  var content1 = document.getElementById("content1");
+  content1.innerHTML = "";
+  let sortedByNameArray = contactArray.sort(
+    (p1, p2) => (p1.name.localeCompare(p2.name))
+  );
+  sortedByNameArray.forEach(function(element) {
+      var li = document.createElement('li');
+      var link = document.createElement('a');
+      link.innerText = element.name;
+      link.href = "javascript:void(0)";
+      link.addEventListener("click", function() {
+          displayContactInfo(element);
+      });
+      li.appendChild(link);
+      content1.appendChild(li);
+  });
 }

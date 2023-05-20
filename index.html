@@ -64,10 +64,6 @@
                 <input type="tel" name="phone" id="phone" required>
             </div>
             <div data-role="fieldcontain">
-                <label for="PhotoName">Photo Name:</label>
-                <input type="text" name="name" id="PhotoName" required>
-            </div>
-            <div data-role="fieldcontain">
                 <label for="Photo_URL">Photo URL:</label>
                 <input type="text" name="Photo_URL" id="Photo_URL" placeholder="put photo url in here">
             </div>
@@ -112,53 +108,30 @@
     </div>
   
 </div>
-  <!--change new ------------------------------------------------------------------------------->
+<!-- Avatar Page -->
 <div data-role="page" id="avatar">
-  <div data-role="header" data-theme="b">
-    <h1>person avatar list </h1>
-    <div data-role="navbar" data-iconpos="left">
-        <ul>
-            <li><a href="#home" data-icon="home">Home</a></li>
-            <li><a href="#data" data-icon="plus">information</a></li>
-            <li><a href="#display" data-icon="grid">Display</a></li>
-           <li><a href="#avatar" data-icon="star">Avatar Contacts</a></li>
-        </ul>
-    </div>
-        <form id="data-form">
-            <div data-role="fieldcontain">
-                <label for="Avatar1">Name:</label>
-                <input type="text" name="name" id="Avatar1" required>
-            </div>
-            <div data-role="fieldcontain">
-                <label for="Photo_URL">Photo URL:</label>
-                <input type="text" name="Photo_URL" id="Photo_URL" placeholder="put photo url in here">
-            
-          
-            <button type="button" onclick="addContact()">Add Contact</button>
-  </form>
-    </div>
-    <h2>Here are Your photo contact </h2>
-    <ul id="avatar-list"></ul>
-    <br><br>
-    <div data-role="page" id="show">
-  </div>
-  <div data-role="content" data-theme='c'>
-    <ul id="myul" data-role="listview"></ul>  
-</div>
-  <div data-role="footer" data-theme='b'>
-    <h3>copy right</h3>
-  </div>
-  <div data-role="page" id="user">
     <div data-role="header" data-theme="b">
-        <h1>User Profile</h1>
+        <h1>Person Avatar List</h1>
         <div data-role="navbar" data-iconpos="left">
             <ul>
                 <li><a href="#home" data-icon="home">Home</a></li>
-                <li><a href="#data" data-icon="plus">information</a></li>
+                <li><a href="#data" data-icon="plus">Information</a></li>
                 <li><a href="#display" data-icon="grid">Display</a></li>
                 <li><a href="#avatar" data-icon="star">Avatar Contacts</a></li>
             </ul>
         </div>
+    </div>
+    <h2>Here are Your person contacts</h2>
+
+    <button id="showByNameButton" data-inline="true">Sort by Name</button>
+    <ul id="content1" data-role="listview"></ul>  
+    <div id="contactInfo"></div>
+
+    
+
+    <div data-role="footer" data-theme='b'>
+        <h3>Copy right</h3>
+    </div>
 </div>
 </body>
 
